@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 
+const categoriesRouter = require('./routes/categories/categories.router');
 const exerciseRouter = require('./routes/exercises/exercises.router');
 const measuresRouter = require('./routes/measures/measures.router');
 
@@ -15,7 +16,7 @@ app.use(
 app.use(morgan('combined'));
 app.use(express.json());
 
-// app.use('/categories');
+app.use('/categories', categoriesRouter);
 app.use('/exercises', exerciseRouter);
 app.use('/measures', measuresRouter);
 
